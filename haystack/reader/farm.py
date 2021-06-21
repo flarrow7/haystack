@@ -392,7 +392,7 @@ class FARMReader(BaseReader):
 
         return result
 
-    def eval_on_file(self, data_dir: str, test_filename: str, device: str):
+    def eval_on_file(self, data_dir: str, batch_size: int,test_filename: str, device: str):
         """
         Performs evaluation on a SQuAD-formatted file.
         Returns a dict containing the following metrics:
@@ -419,7 +419,7 @@ class FARMReader(BaseReader):
             data_dir=Path(data_dir),
         )
 
-        data_silo = DataSilo(processor=eval_processor, batch_size=self.inferencer.batch_size, distributed=False)
+        data_silo = DataSilo(processor=eval_processor, batch_size=batch_size, distributed=False)
         data_loader = data_silo.get_data_loader("test")
 
         evaluator = Evaluator(data_loader=data_loader, tasks=eval_processor.tasks, device=device)
