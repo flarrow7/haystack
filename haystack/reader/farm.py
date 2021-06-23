@@ -240,6 +240,9 @@ class FARMReader(BaseReader):
             evaluate_every=evaluate_every,
             device=device,
             use_amp=use_amp,
+            checkpoint_every: int = None,
+            checkpoint_root_dir=None,
+            checkpoints_to_keep: int = None,          
             disable_tqdm=not self.progress_bar
         )
 
