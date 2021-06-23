@@ -242,7 +242,7 @@ class FARMReader(BaseReader):
             use_amp=use_amp,
             checkpoint_every= None,
             checkpoint_root_dir=None,
-            checkpoints_to_keep: int = None,          
+            checkpoints_to_keep= None,          
             disable_tqdm=not self.progress_bar
         )
 
